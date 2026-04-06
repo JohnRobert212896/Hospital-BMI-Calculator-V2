@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospital BMI Calculator V2</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="header">
+    <div class="icon">🏥</div>
+    <h1>Hospital BMI Calculator V2</h1>
+    <p>Patient Health Assessment and BMI Monitoring System</p>
+  </div>
+
+  <div class="dashboard">
+    <!-- Left Panel -->
+    <div class="card">
+      <h2 class="section-title">Patient Information</h2>
+
+      <div class="input-group">
+        <label for="patientName">Patient Name</label>
+        <input type="text" id="patientName" placeholder="Enter patient full name">
+      </div>
+
+      <div class="grid-2">
+        <div class="input-group">
+          <label for="age">Age</label>
+          <input type="number" id="age" placeholder="Enter age">
+        </div>
+
+        <div class="input-group">
+          <label for="gender">Gender</label>
+          <select id="gender">
+            <option value="">Select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="input-group">
+          <label for="height">Height (cm)</label>
+          <input type="number" id="height" placeholder="Enter height">
+        </div>
+
+        <div class="input-group">
+          <label for="weight">Weight (kg)</label>
+          <input type="number" id="weight" placeholder="Enter weight">
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn-primary" onclick="calculateBMI()">Calculate</button>
+        <button class="btn-success" onclick="saveRecord()">Save Record</button>
+        <button class="btn-warning" onclick="printResult()">Print</button>
+        <button class="btn-danger" onclick="resetForm()">Reset</button>
+      </div>
+
+      <div class="result-box" id="resultBox">
+        <h3>Patient BMI Result</h3>
+        <div class="result-item"><strong>Name:</strong> <span id="displayName">-</span></div>
+        <div class="result-item"><strong>Age:</strong> <span id="displayAge">-</span></div>
+        <div class="result-item"><strong>Gender:</strong> <span id="displayGender">-</span></div>
+        <div class="result-item"><strong>BMI Value:</strong> <span class="bmi-value" id="bmiValue">0.00</span></div>
+        <div class="result-item"><strong>Category:</strong> <span class="status-badge" id="bmiCategory">-</span></div>
+        <div class="result-item"><strong>Interpretation:</strong> <span id="interpretation">-</span></div>
+      </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="card">
+      <h2 class="section-title">Patient BMI Records</h2>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Patient Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Height (cm)</th>
+              <th>Weight (kg)</th>
+              <th>BMI</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody id="recordTable">
+            <tr>
+              <td colspan="8" class="empty-state">No patient records saved yet.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="footer-note">
+        Hospital Monitoring Dashboard • Responsive System • 2026
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
